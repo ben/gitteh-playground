@@ -8,6 +8,7 @@
       , "ejs": "*"
       , "stylus": "*"
       , "coffee-script": "*"
+      , "gitteh": "git+https://github.com/ben/node-gitteh#fix-submodule"
     }
   , "scripts": {
       "start": "server.js"
