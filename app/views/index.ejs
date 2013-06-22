@@ -1,6 +1,21 @@
 <h1>Gitteh Playground</h1>
-<p><%= err %></p>
 <p><%= repo.path %></p>
 <p>HEAD -> <%= ref.name %> -> <%= ref.target %></p>
 
-<%- treeDisplay %>
+<%
+function displayEntries(entries) {
+  str = "<ul>";
+  for (var i=0; i<entries.length; i++) {
+    var e = entries[i];
+    str += "<li>" + e.name + (e.dir ? "/" : "");
+    if (e.dir) {
+      str += displayEntries(e.children);
+    }
+  }
+  return str + "</ul>";
+}
+%>
+
+<br/>
+<h2>HEAD's tree</h2>
+<%- displayEntries(entries) %>
