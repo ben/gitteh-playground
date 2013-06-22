@@ -1,6 +1,6 @@
 <h1>Gitteh Playground</h1>
 <p><%= repo.path %></p>
-<p>HEAD -> <%= ref.name %> -> <%= ref.target %></p>
+<p>HEAD -> <%= head.name %> -> <%= head.target %></p>
 
 <%
 function displayEntries(entries) {
@@ -16,6 +16,12 @@ function displayEntries(entries) {
 }
 %>
 
-<br/>
+
+<h2>Commit history</h2>
+<% for (var i=0; i<commits.length; i++) { %>
+<% var commit = commits[i]; %>
+<p><%= commit.id %> – <%= commit.message %></p>
+<% } %>
+
 <h2>HEAD's tree</h2>
 <%- displayEntries(entries) %>
